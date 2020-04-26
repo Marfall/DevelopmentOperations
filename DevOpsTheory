@@ -1,0 +1,109 @@
+DEVOPS AND EVOLUTION OF SOFTWARE DEVELOPMENT:
+
+
+        DevOps (AWS):
+
+            - DevOps is the combination of cultural philosophies, practices, and tools
+              that increases an organization's ability to deliver applications and services at hight velocity.
+
+
+                        increase - увеличение
+                        ability  - способность
+                        velocity - скорость
+
+
+        DevOps (L. Leite)
+
+            - DevOps is collaborative and multidisciplinary effort within an organization to automate
+              continuos delivery of new software versions while guaranteeing their correctness and reliability.
+
+
+                        collaborative - коллективный
+                        effort        - усилие
+                        within        - внутри, в рамках
+                        reliability   - надежность
+
+
+        DevOps (Gene Kim - The DevOps Handbook)
+
+
+            - DevOps is the outcome of applying the most trusted principles from the domain
+              of physical manufacturing and leadership to the IT value stream.
+
+
+                        outcome - итог
+
+
+
+        - The result is world-class reliability, stability, and secutity at ever lower cost and effort;
+          and accelerated flow and reliability through the technology value stream, including 
+          Product Management, Development, QA, IT Operations and Infosec;
+
+
+                        accelarated flow - ускоренный поток
+                        evolved          - развитый
+
+
+
+        WATERFALL MODEL:
+
+
+            - Requirements
+            - Design
+            - Implementation
+            - Testing
+            - Deployment
+
+
+                        enhanced  - улучшенный
+                        essential - существенный
+                        sufficient - достаточно
+
+        TEAMS:
+
+            - Business
+            - Development
+            - Opeations
+
+
+    => 3 key elements to developing great software:
+
+            - Enhanced communication
+            - Automation
+            - Quick feedback
+
+
+
+
+EVOLUTION TO AGILE:
+
+
+        - Agile brought the business  and the development teams together into ome team;
+
+        - Sprints - Small Iterations
+
+            - The teams worked together to build great software in small iterations, called
+              sprints, instead of spending  weeks or months.
+
+        - Agile Automation:
+
+            - Code Commit 
+            - Unit Tests
+            - Code Quality
+            - Package
+            - Integration Tests
+
+
+
+DEVOPS:
+
+
+    - The  focus of DevOps is on enhancing the communications between the development and operations.
+
+        
+
+
+
+
+            
+
