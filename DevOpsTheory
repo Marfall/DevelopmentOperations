@@ -100,6 +100,97 @@ DEVOPS:
 
     - The  focus of DevOps is on enhancing the communications between the development and operations.
 
+    - In more mature enterprises, Development and Operations were combined into a single team;
+
+
+                mature - зрелый
+
+
+    - IAAC - Automate Operations
+
+        - Create Template;
+        - Provisioned Server
+        - Install Software
+        - Configure Software
+        - Deploy App 
+
+                provisioned  - предусмотренный
+
+
+      - Continuous Deployment is all about deploing new version of software on test environments.
+
+      - Continuous Integration was focused on running the Tests and the Code Quality checks.
+
+      - COntinuous Delivery - is deploing software to Production.
+
+
+
+    Infrastructure as a Code(IAAC) :
+
+
+        - It is all about treating your Infrastructure the same way you treat your application code;
+
+        - It is all about creating your Infrastructure, that is the Servers, Load Balancers, Databases
+          in an automated way, using ode and configuration to enhance communiction.
+        
+
+                  treat        - рассматривать
+                  though       - хотя, однако
+                  encourage    - поощрение
+                  whether      - будь то
+                  irrespective - независим
+
+
+
+
+DOCKER CONTAINERIZATION:
+
+      - Project Code;
+      - Docker Image;
+      - Docker Repository;
+
+
+      - It can be diifferent DE and DP for Java, Python or JavaScript applications.
+
+      - In the world of Microservices we need to have the same Deployment Ennvironment and the same 
+        Deployment Procedure for all Microservices;
+
+      - The Docker provides an amazing solution:
+
+           - Once you have an application or Microservice, you can build a Docker Image containing the Microservice.
+            
+           - Once you build a Docker Imagem it does not matter whether the Docker Image for Python application
+             or Java application or a JavaScript application.
+
+            - You still run in the same way.
+
+            - The software you need to run this Docker Image is the same, irrespective of what the Docker Image contains.
+
+            - Once you use containers, your Infrastructure as code becomes really really simple:
+
+            - You can provision a cluster of servers which have the container runtime installed on that, and you can
+              directly deploy containers onto them.
+
+
+                    - Provision Cluster
+                    - Deploy Containers
+
+
+
+
+DOCKER AND DEVOPS:
+
+
+
+      
+
+
+
+          
+
+
+
+                
         
 
 
