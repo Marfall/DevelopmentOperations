@@ -180,19 +180,347 @@ DOCKER CONTAINERIZATION:
 
 DOCKER AND DEVOPS:
 
+      docker --version    
+
+            - show version of Docker
+
+        
+
+
+
+FIRST DEVOPS CASE WITH DOCKER:
+
+
+    - Deploying 3 diferent applications to QA Ennvironment:
+
+      1) Deploying Python-Appliaction:
+
+
+            docker run -p 5000:5000 in28min/hello-world-python:0.0.1.RELEASE
+
+
+            - Then go to the browser  -    http://localhost:5000/
+
+            CTRL + C   -  terminate container
+
+      2) Deploying Java-Appliaction:
+
+          
+          docker run -p 5000:5000 in28min/hello-world-java:0.0.1.RELEASE
+
+
+      3) Deploying JavaScript-Application:
+
+          
+          docker run -p 5000:5000 in28min/hello-world-nodejs:0.0.1.RELEASE
+
+
+
+
+
+
+IMPORTANT DOCKER CONCEPTS - REGISTRY, REPOSITORY, TAG , IMAGE AND CONTAINER:
+
+    -  Whats happening in the background:
+
+
+          in28min/hello-world-nodejs:0.0.1.RELEASE
+
+              - That's nothing but a Path to a Docker Image, which is stored on a Docker Registry called Docker Hub;
+
+              - Docker Hub is a public Docker Registry, which is available at hub.docker.combination
+
+              - A Docker Registry contains a lot of repositories - different versions of different applications.
+
+
+              https://hub.docker.com/r/in28min/hello-world-nodejs
+
+                  - details of image on Docker Hub.
+
+
+              in28min/hello-world-nodejs  
+
+                    - repository
+
+              0.0.1.RELEASE
+
+                    - specific release 
+
+
+     - This specific image contains everything that you would need to run your specific application:
+
+
+            - It contains the right software you'd need to run the application - for example the right version of NodeJS,
+              the right version of JavaScript. It contains all the libraries that your application needs, and in addition to that,
+              it might also contain any Dependencies that your application  might need to be able to run.
+
+
+      =>  The Image is stored on Docker Hub, which is a Docker Registry, and this specific repository for this particular
+          Image is  in28min/hello-world-nodejs. And this specific Tag of this  specific Image is 0.0.1.RELEASE.
+
+
+
+      What is happening at the background, when I execute this command:
+
+
+          - Docker is checking Locally if this image os present.
+          - It is unable to find this Image Locally, then 
+          - It is actually connecting to Docker Hub. So it is going to Docker Hub and pulling the Image from this repository.
+          - So it pulls down the entire image from teh Docker Hub to my Local Machine
+          - And once the Image is downloaded, Docker is running that specific Image.
+
+          Container:
+
+              - Is the Running version of Image.
+
+          Image:
+
+              - Is something static on the repository - it is nothing but a Set of Bytes.
+
+              - For one Image you can have a lot of containers, which are running.
+
+                         expose    - выставлять
+                         unless    - если
+                         converse  - общаться
+                         tricky    - запутанный
+
+        
+          Internal Docker Network (Bridge Network):
+
+
+              - Whenever we run a container, it is part of Internal Docker network, called a Bridge Network;
+
+              - By default, all containers run inside the Bridge Network;
+
+              - You will not be able to access the container, unless the port is exposed outside.
+
+              -p 5000:5000
+
+                  - Here we taking the container port to 5000, and mapping it to a host port
+
+                  -p   =    --publish
+
+                  => We are publishing a container port to a host port.
+
+                      Left  - Host Port
+                      Right - Bridge Port
+
+
+                
+        
+
+
+DOCKER DETACHED MODE AND LOGS:
+
+
+      docker run -d -p 5000:5000 in28min/hello-world-nodejs:0.0.1.RELEASE
+
+      -d = --detached   
+
+      Detached Mode:
+
+          - Everuthing is happening at the background;
+
+
+      docker logs  docker logs bf7f1    
+
+          - show Docker Logs -  bf7f1 - is an ID of specific container 
+
+      - If I want to follow the logs of specific appliation:
+
+
+      docker logs -f bf7f1
+
+
+      docker images   = docker image ls
+
+          - show Docker Images, which presented on the Local Machine
+
+
+      docker container ls 
+
+
+          - shows containers, running at this particular point in time;
+
+
+      - When we running the command, we did not really assign any name for the container    
+
+        => Docker assigned a default name to every container
+
+
+
+      docker container ls -a  
+
+
+          shows  all the containers  with the containers, that already stopped;
+
+                  truncate - усеченный
+
+
+      How to stop one of containers:
+
+
+          docker container stop c2ba2
 
 
       
 
 
 
-          
+DOCKER ARCHITECTURE - DOCKER CLIENT - DOCKER ENGINE:
 
 
 
-                
+     Docker Client  -  Docker Daemon   -   Container
+                                       -   Local Images
+                                       -   Image Registry (nginx, mysql, eureka, your-app)
+
+
+                        
+    - Docker uses Client-Server Architecture;
+
+    - Docker Client is the Client;
+
+    - Docker Daemon is like a Server component;
+
+    - We run the commands in Docker Client and the Docker Client sends them to Docker Daemon for execution;
+
+
+
+    Docker Daemon is responsible for:
+
+        - managing containers;
+        - managing local images;
+        - pulling images from image repository;
+        - pushing images out to the image repository;
+
+
+
+
+
+REASONS OF DOCKER POPULARITY:
+
+
+      1) Standaridized Application Packaging
+
+            - Same packaging for all types of applications - Java, Python, JS
+
+
+      2) Multi Platform Support
+
+            - Local Machine
+            - Data Center
+            - Cloud - AWS, Azure, Google Cloud Platform
+
+      3) Light-Weight and Isolation
+
+
+            - Containers are Light-Weight compared to VM's 
+            - Isolated from one another
+
+
+      - Before Docker, the way you can virtualize things, was using something called Virtual Machines;
+
+      - With a Virtual Machine, you had:
+
+            - Hypervisor
+            - Host Operating System
+            - Hardware
+
+            
+        - On top of it is where all your Virtual Machines are installed, and each of these Virtual Machines 
+          also had a Guest Operating System.
+
+          => With Virtual Machine Architecture - there are 2 Operating Systems 
+
+              - Guest OS 
+              - Host OS
+
+        => Virtual Machines are Heavy-Weight;
+
+        - When you virtualize, you'll not be able to really make use of entire power of your Hardware,
+          because of virtualization.
         
 
+        - With Docker, all that you need to run the containers is a Docker Engine.
+
+
+        Deployments using Docker:
+
+
+            - Docker Engine
+            - Host Operating System
+            - Cloud Infrastructure
+
+
+
+          - Once you have the Docker Engine installed, you can run any kinf of containers on it.
+
+          - The Container Images contain everything that is needed to run the container. They contain the application
+            all the software they would need.
+
+                        ensure - обеспечивать
+                        impact - влияние
+                        spread - распространение
+                        rest   - остальные
+                        remain - оставаться
+
+
+        - Docker Containers are Isolated from each other.
+
+        - You can assign a specific memory - a specific amount of CPU - to each of these containers.
+
+        - You can say - Container One - you get 20 percent of the CPU, and it not be able to use more
+          than 20 percent of CPU at any point of time;
+
+        - Similar Limits can be placed on the Memory as well.
+
+        - Also, the Docker Engine can ensure that the failure of one container does not really impact 
+          any of the  other containers.
+
+
+          => This would ensure that a problem with one container will not spread to other containers, 
+             and the rest of the Ennvironment remains stable.
+
+
+
+
+
+DOCKER IMAGE COMMANDS:
+
+
+      docker images
+
+
+              - shows all the images that are present inside our Local Machine
+
+
+      docker pull mysql
+
+
+              - if you not provide a Tag - Docker uses default Tag -  Latest
+
+              - Pull not launch up the Container, not create a Container from Image
+
+              - It will only pull the Image, and it will make it available Locally;
+
+
+      docker  search mysql
+
+
+            - Find out, what are the diifferent Docker Images present on the Docker Registry;
+
+
+      docker image history in28min/hello-world-java:0.0.1.RELEASE
+          
+            - Show all layers in the Image - OS, Software, Appliaction Binary
+
+            - Docker Image History for this specific Image. There are a number a Layers, which are
+              listed down here.
+
+            - You don't need to specify the Tag as well, you can use something called an ID.
+
+            - This Image ID is Unique for each of the image releases
 
 
 
